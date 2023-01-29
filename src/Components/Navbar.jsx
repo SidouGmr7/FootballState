@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import SidouProfile2 from '../img/SidouProfile2.jpg'
 import { Link } from 'react-router-dom'
 import { TbBallFootball } from 'react-icons/tb'
@@ -17,7 +16,7 @@ function Navbar() {
           </div>
         </div>
         <div className='md:flex hidden items-center gap-8 mr-14'>
-          <motion.ul
+          <ul
             initial={{ opacity: 0, x: 200 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 200 }}
@@ -37,15 +36,14 @@ function Navbar() {
                 Equipe
               </li>
             </Link>
-            <Link to='/'>
+            <Link to='/add'>
               <li className='text-lg hover:scale-110 transition cursor-pointer text-slate-200 hover:text-green-500'>
                 Add
               </li>
             </Link>
-          </motion.ul>
+          </ul>
           <div className='relative'>
-            <motion.img
-              whileTap={{ scale: 0.6 }}
+            <img
               src={SidouProfile2}
               className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full'
               alt='userprofile'

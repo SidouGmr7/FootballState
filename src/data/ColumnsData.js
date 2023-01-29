@@ -1,5 +1,6 @@
 export const EquipeCol = [
   {
+    type: "number",
     field: 'c',
     headerName: 'C',
     cellClassName: 'super-app-theme--cell',
@@ -8,49 +9,61 @@ export const EquipeCol = [
     valueGetter: (params) => {
       return params.row.c
     },
+    width: 50,
   },
   {
+    type: "string",
     field: 'name',
     headerName: 'Joueur',
     align: 'center',
     editable: 'true',
     headerAlign: 'center',
-    width: 130,
+    width: 180,
   },
   {
-    field: 'national',
+    type: "string",
+    field: 'national.name',
     headerName: 'National',
     align: 'center',
     headerAlign: 'center',
-    width: 160,
+    width: 120,
     valueGetter: (params) => {
       return params.row.national.name
     },
   },
   {
-    field: 'goals',
+    type: "number",
+    field: 'national.goals',
     headerName: 'Goals',
     align: 'center',
     headerAlign: 'center',
     editable: 'true',
     width: 80,
+    valueGetter: (params) => {
+      return params.row.national.goals
+    },
   },
   {
-    field: 'match',
+    type: "number",
+    field: 'national.match',
     align: 'center',
     headerAlign: 'center',
     headerName: 'Match',
     editable: 'true',
     width: 80,
+    valueGetter: (params) => {
+      return params.row.national.match
+    },
   },
   {
+    type: "number",
     field: 'ratio',
     headerName: 'R',
     align: 'center',
     headerAlign: 'center',
     width: 80,
     valueGetter: (params) => {
-      return (params.row.goals / params.row.match).toFixed(2)
+      return (params.row.national.goals / params.row.national.match).toFixed(2)
     },
   },
 ]

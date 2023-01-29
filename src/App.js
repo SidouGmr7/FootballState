@@ -5,6 +5,7 @@ import Navbar from './Components/Navbar'
 import AddPlayer from './Pages/AddPlayer'
 import Home from './Pages/Home'
 import Equipe from './Pages/Equipe';
+import National from './Pages/National';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/national' element={<Equipe />} />
+          <Route path='/national' element={<National />} />
           <Route path='/team' element={<Equipe />} />
           <Route path='/add' element={<AddPlayer />} />
         </Routes>
