@@ -75,7 +75,6 @@ export const TableContainerCustom = (props) => {
             data={dataFilter}
             setData={setDataFilter}
             team={Team}
-            setTeam={setTeam}
             selectData={[...new Set(data.map((d) => d.national.name))]}
         />
     )

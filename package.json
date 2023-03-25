@@ -2,6 +2,7 @@
   "name": "footstat",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
@@ -29,7 +30,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generate": "node src/script/wikiGeneratePage.mjs"
+    "generate": "node src/script/wikiGeneratePage.js"
   },
   "eslintConfig": {
     "extends": [
