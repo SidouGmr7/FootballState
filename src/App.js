@@ -1,27 +1,34 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import './App.css'
-import Footer from './Components/Footer'
-import Navbar from './Components/Navbar'
-import AddPlayer from './Pages/AddPlayer'
-import Home from './Pages/Home'
-import Equipe from './Pages/Equipe';
-import National from './Pages/National';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import "./App.css"
+import Footer from "./Components/Layout/Footer"
+import Navbar from "./Components/Layout/Navbar"
+import AddPlayer from "./Pages/AddPlayer"
+import Home from "./Pages/Home"
+import { TableContainerCustom as TableContainer } from "./Pages/TableContainerCustom"
+import { nationalColumn, equipeColumn } from "./data/ColumnsData"
+import { teamData, countryData } from "./data/RowData"
 
 function App() {
-  return (
-    <div className='overflow-hidden'>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/national' element={<National />} />
-          <Route path='/team' element={<Equipe />} />
-          <Route path='/add' element={<AddPlayer />} />
-        </Routes>
-        <Footer />
-      </Router>
-    </div>
-  )
+    return (
+        <div className='overflow-hidden'>
+            <Router>
+                <Navbar />
+                <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route
+                        path='/national'
+                        element={<TableContainer column={nationalColumn} selectData={countryData} />}
+                    />
+                    <Route
+                        path='/team'
+                        element={<TableContainer column={equipeColumn} selectData={teamData} />}
+                    />
+                    <Route path='/add' element={<AddPlayer />} />
+                </Routes>
+                <Footer />
+            </Router>
+        </div>
+    )
 }
 
 export default App

@@ -1,7 +1,7 @@
-export const TeamData = ["bayern", "barcelona", "realmadrid"]
-export const CountryData = [
-  "Spain",
+export const teamData = ["Bayern", "Barcelona", "Realmadrid"]
+export const countryData = [
   "England",
+  "Spain",
   "France",
   "Germany",
   "Italy",
@@ -9,5 +9,5 @@ export const CountryData = [
   "argentina",
   "poland",
 ]
-export const PositionData = ["Forward", "Midfielder", "Defender", "Goalkeeper"]
-export const PlayerData = []
+export const positionData = ["Forward", "Midfielder", "Defender", "Goalkeeper"]
+export const playerData = []

@@ -1,4 +1,4 @@
-import SidouProfile2 from '../img/SidouProfile2.jpg'
+import SidouProfile2 from '../../img/SidouProfile2.jpg'
 import { Link } from 'react-router-dom'
 import { TbBallFootball } from 'react-icons/tb'
 

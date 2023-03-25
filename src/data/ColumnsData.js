@@ -1,69 +1,94 @@
-export const EquipeCol = [
-  {
-    type: "number",
-    field: 'c',
-    headerName: 'C',
-    cellClassName: 'super-app-theme--cell',
-    headerAlign: 'center',
-    align: 'center',
-    valueGetter: (params) => {
-      return params.row.c
+import moment from "moment"
+import { teamData } from "./RowData"
+
+export const nationalColumn = [
+    {
+        name: "Name",
+        value: (row) => {
+            return row.name
+        },
     },
-    width: 50,
-  },
-  {
-    type: "string",
-    field: 'name',
-    headerName: 'Joueur',
-    align: 'center',
-    editable: 'true',
-    headerAlign: 'center',
-    width: 180,
-  },
-  {
-    type: "string",
-    field: 'national.name',
-    headerName: 'National',
-    align: 'center',
-    headerAlign: 'center',
-    width: 120,
-    valueGetter: (params) => {
-      return params.row.national.name
+    {
+        name: "National",
+        value: (row) => {
+            return row.national.name
+        },
     },
-  },
-  {
-    type: "number",
-    field: 'national.goals',
-    headerName: 'Goals',
-    align: 'center',
-    headerAlign: 'center',
-    editable: 'true',
-    width: 80,
-    valueGetter: (params) => {
-      return params.row.national.goals
+    {
+        name: "Goals",
+        value: (row) => {
+            return row.national.goals
+        },
     },
-  },
-  {
-    type: "number",
-    field: 'national.match',
-    align: 'center',
-    headerAlign: 'center',
-    headerName: 'Match',
-    editable: 'true',
-    width: 80,
-    valueGetter: (params) => {
-      return params.row.national.match
+    {
+        name: "Match",
+        value: (row) => {
+            return row.national.match
+        },
     },
-  },
-  {
-    type: "number",
-    field: 'ratio',
-    headerName: 'R',
-    align: 'center',
-    headerAlign: 'center',
-    width: 80,
-    valueGetter: (params) => {
-      return (params.row.national.goals / params.row.national.match).toFixed(2)
+    {
+        name: "Ratio",
+        value: (row) => {
+            return (row.national.goals / row.national.match).toFixed(2)
+        },
     },
-  },
+    {
+        name: "LastUpdate",
+        value: (row) => {
+            return row.lastUpdate ? moment(row.lastUpdate.toDate().toString()).format("DD/MM/YY") : null
+        },
+    },
+]
+
+export const equipeColumn = [
+    {
+        name: "Name",
+        value: (row) => {
+            return row.name
+        },
+    },
+    {
+        name: "Team",
+        value: (row, team) => {
+            return teamData.includes(team)
+                ? row.team?.find((t) => t.name === team).name
+                : row.team?.map((t) => t.name) + "" || null
+        },
+    },
+    {
+        name: "Goals",
+        value: (row, team) => {
+            return teamData.includes(team)
+                ? row.team?.find((t) => t.name === team).goals
+                : row.team?.reduce((acc, val) => acc + parseInt(val.goals), 0)
+        },
+    },
+    {
+        name: "Match",
+        value: (row, team) => {
+            return teamData.includes(team)
+                ? row.team?.find((t) => t.name === team).match
+                : row.team?.reduce((acc, val) => acc + parseInt(val.match), 0)
+        },
+    },
+    {
+        name: "Ratio",
+        value: (row, team) => {
+            return teamData.includes(team)
+                ? (
+                      row.team?.find((t) => t.name === team).goals /
+                      row.team?.find((t) => t.name === team).match
+                  ).toFixed(2)
+                : (
+                      row.team?.reduce((acc, val) => acc + parseInt(val.goals), 0) /
+                      row.team?.reduce((acc, val) => acc + parseInt(val.match), 0)
+                  ).toFixed(2)
+        },
+    },
+    {
+        name: "LastUpdate",
+        value: (row) => {
+            return moment(row?.lastUpdate?.toDate().toString()).format("DD/MM/YY") || null
+        },
+    },
 ]
