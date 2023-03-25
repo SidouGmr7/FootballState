@@ -14,7 +14,7 @@ export const SelectField = (props) => {
                 onChange={(event) => setFieldValue(field, event.target.value)}
                 required={true}
                 {...props}>
-                {props.extraValue}
+                {props.children}
                 {choices &&
                     choices.map((choice) => {
                         return (

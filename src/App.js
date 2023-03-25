@@ -17,7 +17,7 @@ function App() {
                     <Route path='/' element={<Home />} />
                     <Route
                         path='/national'
-                        element={<TableContainer column={nationalColumn} selectData={countryData} />}
+                        element={<TableContainer column={nationalColumn} />}
                     />
                     <Route
                         path='/team'

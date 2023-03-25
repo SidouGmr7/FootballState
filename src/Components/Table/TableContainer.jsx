@@ -6,7 +6,7 @@ import { Button, Grid, Typography } from "@material-ui/core"
 import { withPopoverMui } from "../Dialog/PopoverContainer"
 
 const TableContainer = (props) => {
-    const { Team, filters } = props
+    const { filters } = props
     const path = useLocation().pathname
 
     const ActionPopover = withPopoverMui(props?.ActionPopover.components, ({ onClick }) => {
@@ -17,7 +17,7 @@ const TableContainer = (props) => {
         )
     })
     return (
-        <div>
+        <div className='min-h-screen'>
             <div className='m-8'>
                 <Grid container className='mb-8'>
                     <Grid item>
@@ -30,43 +30,36 @@ const TableContainer = (props) => {
                         </Typography>
                     </Grid>
                     <Grid container spacing={3} justifyContent='flex-end'>
-                        {filters.map((filter) => {
+                        {filters.map((filter, index) => {
                             return (
-                                <Grid item>
+                                <Grid item key={index}>
                                     <SelectField
                                         choices={props.selectData}
                                         name='Select Country'
-                                        onChange={(e) => filter(e)}
-                                        extraValue={
-                                            <option className='text-rose-200'>
-                                                Chose the {path === "/team" ? "Team" : "Country"}
-                                            </option>
-                                        }
-                                    />
+                                        onChange={(e) => filter(e)}>
+                                        <option className='text-rose-200'>
+                                            Chose the {path === "/team" ? "Team" : "Country"}
+                                        </option>
+                                    </SelectField>
                                 </Grid>
                             )
                         })}
 
-                        {props.updateDataFromTemplate && (
-                            <>
-                                <Grid item>
-                                    <Button
-                                        variant='contained'
-                                        color='primary'
-                                        onClick={() => props.updateDataFromTemplate(false)}>
-                                        Add template
-                                    </Button>
-                                </Grid>
-                                <Grid item>
-                                    <Button
-                                        variant='contained'
-                                        color='primary'
-                                        onClick={() => props.updateDataFromTemplate(true)}>
-                                        upadate template
-                                    </Button>
-                                </Grid>
-                            </>
-                        )}
+                        {props.updateDataFromTemplate &&
+                            ["Add", "Upadate"].map((button) => {
+                                return (
+                                    <Grid item>
+                                        <Button
+                                            variant='contained'
+                                            color='primary'
+                                            onClick={() =>
+                                                props.updateDataFromTemplate(button === "upadate" ? false : true)
+                                            }>
+                                            {button} Template
+                                        </Button>
+                                    </Grid>
+                                )
+                            })}
                         {props?.ActionPopover.components && (
                             <Grid item>
                                 <ActionPopover />
@@ -74,7 +67,7 @@ const TableContainer = (props) => {
                         )}
                     </Grid>
                 </Grid>
-                <Table data={props.data} {...props} team={Team} />
+                <Table {...props} />
             </div>
         </div>
     )

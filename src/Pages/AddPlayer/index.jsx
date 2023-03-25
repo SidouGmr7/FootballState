@@ -18,19 +18,19 @@ import { Button } from "@material-ui/core"
 
 export const onSubmit = async (data, onEdit) => {
     if (onEdit) {
-        await updateDoc(doc(db, "Player", data.uuid), data)
-        alert("Player " + data.name + " Edit")
+        await updateDoc(doc(db, "data", data.uuid), data)
+        alert("data " + data.name + " Edit")
     } else {
-        const collectionRef = collection(db, "Player")
+        const collectionRef = collection(db, "data")
         const queryRef = query(collectionRef, where("name", "==", data.name))
 
         getDocs(queryRef).then(async (querySnapshot) => {
             if (querySnapshot.size > 0) {
             } else {
-                await setDoc(doc(db, "Player", data.uuid), data)
+                await setDoc(doc(db, "data", data.uuid), data)
             }
         })
-        alert("tableData.length player was added")
+        alert("tableData.length data was added")
         data["id"] = uuidv4()
     }
 }
@@ -44,21 +44,21 @@ export const setInitiaValuesToTeamData = (team, fieldName) => {
     }))
 }
 
-function AddPlayer(props) {
-    const { player } = props
+function Adddata(props) {
+    const { data } = props
     const formik = useFormik({
         initialValues: {
-            name: player?.name || "",
-            position: player?.position || "Forward",
+            name: data?.name || "",
+            position: data?.position || "Forward",
             national: {
-                name: player?.national.name || "",
-                goals: player?.national.goals || 0,
-                match: player?.national.match || 0,
+                name: data?.national.name || "",
+                goals: data?.national.goals || 0,
+                match: data?.national.match || 0,
             },
-            team: setInitiaValuesToTeamData(player?.team, "team"),
-            team_count: player?.team_count || 1,
+            team: setInitiaValuesToTeamData(data?.team, "team"),
+            team_count: data?.team_count || 1,
             lastUpdate: serverTimestamp(),
-            uuid: player?.uuid || uuidv4(),
+            uuid: data?.uuid || uuidv4(),
         },
         onSubmit: (values) => onSubmit(values, props.onEdit),
     })
@@ -85,7 +85,7 @@ function AddPlayer(props) {
     return (
         <FormikProvider value={formik}>
             <form onSubmit={formik.handleSubmit} className='max-w-md mx-4 my-4'>
-                <label className={labelStyle}>Player status</label>
+                <label className={labelStyle}>data status</label>
                 <div className='flex mb-6'>
                     <TextField name='name' field='name' />
                     <SelectField
@@ -116,11 +116,11 @@ function AddPlayer(props) {
                 </div>
                 {teamSection}
                 <Button variant='contained' color='primary' type='submit'>
-                    Add Player
+                    Add data
                 </Button>
             </form>
         </FormikProvider>
     )
 }
 
-export default AddPlayer
+export default Adddata

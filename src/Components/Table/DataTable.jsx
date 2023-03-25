@@ -16,7 +16,9 @@ import AddPlayer from "../../Pages/AddPlayer"
 export default function DataTable(props) {
     const [state, setState] = useState({
         transactionPage: 0,
-        transactionPerPage: 8,
+        transactionPerPage: props.rowPerPage || 5,
+        sortColumn: null,
+        sortDirection: "▲",
     })
     const { transactionPage, transactionPerPage } = state
     const startIndex = transactionPage * transactionPerPage
@@ -25,7 +27,6 @@ export default function DataTable(props) {
     const handlerPageChanged = (event, newPage) => {
         setState((prevState) => ({ ...prevState, transactionPage: newPage }))
     }
-
     const handlerPerPageChanged = (event) => {
         const newPerPage = event.target.value
         setState((prevState) => ({
@@ -38,35 +39,64 @@ export default function DataTable(props) {
         return `${from}-${to} of ${count !== -1 ? count : "more than {page}"}`
     }
 
-    const EditPlayerPopover = withPopoverMui(AddPlayer, ({ onClick }) => {
+    const EditPopover = withPopoverMui(AddPlayer, ({ onClick, index }) => {
         return (
-            <IconButton onClick={onClick}>
+            <IconButton key={index} onClick={onClick}>
                 <Icon>+</Icon>
             </IconButton>
         )
     })
-    console.log('props.team',props.team);
+
+    const handleSort = (cul) => {
+        const { sortColumn, sortDirection } = state
+        let newSortDirection = "▲"
+        if (sortColumn === cul.name) {
+            newSortDirection = sortDirection === "▲" ? "▼" : "▲"
+        }
+        const sortedData = [...props.data].sort((a, b) => {
+            if (cul.value(a) < cul.value(b)) {
+                return newSortDirection === "▲" ? -1 : 1
+            }
+            if (cul.value(a) > cul.value(b)) {
+                return newSortDirection === "▲" ? 1 : -1
+            }
+            return 0
+        })
+        props.setData(sortedData)
+        setState((prevState) => ({
+            ...prevState,
+            sortColumn: cul.name,
+            sortDirection: newSortDirection,
+        }))
+    }
     return (
         <Paper elevation={3} style={{ boxShadow: "4px 3px 20px #c7c7c7" }}>
             <Table aria-labelledby='tableTitle'>
                 <TableHead>
                     <TableRow>
                         <TableCell>C</TableCell>
-                        {props.column.map((cul) => (
-                            <TableCell>{cul.name}</TableCell>
+                        {props.column.map((cul, index) => (
+                            <TableCell key={index} onClick={() => handleSort(cul)}>
+                                {cul.name} {state.sortDirection}
+                                {state.sortColumn === cul.value &&
+                                    setState((prevState) => ({
+                                        ...prevState,
+                                        sortDirection: "▲" ? " ▲" : " ▼",
+                                    }))}
+                            </TableCell>
                         ))}
                         <TableCell>Edit</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data.map((Player, index) => {
+                    {data.map((d, index) => {
                         return (
                             <TableRow key={index} hover={true} tabIndex={-1}>
                                 <TableCell>{index + 1 + startIndex}</TableCell>
-                                {props.column.map((cul) => (
-                                    <TableCell>{cul.value(Player, props.team)}</TableCell>
+                                {props.column.map((cul, index) => (
+                                    <TableCell key={index}>{cul.value(d, props.team)}</TableCell>
                                 ))}
-                                <TableCell>{<EditPlayerPopover player={Player} onEdit={true} />}</TableCell>
+                                <TableCell>{<EditPopover data={d} onEdit={true} />}</TableCell>
                             </TableRow>
                         )
                     })}
@@ -82,8 +112,8 @@ export default function DataTable(props) {
                 backIconButtonProps={{ "aria-label": "Previous Page" }}
                 nextIconButtonProps={{ "aria-label": "Next Page" }}
                 rowsPerPageOptions={[5, 10, 20, 25]}
-                onChangePage={handlerPageChanged}
-                onChangeRowsPerPage={handlerPerPageChanged}
+                onPageChange={handlerPageChanged}
+                onRowsPerPageChange={handlerPerPageChanged}
             />
         </Paper>
     )

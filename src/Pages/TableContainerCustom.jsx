@@ -8,28 +8,34 @@ import AddPlayer from "../Pages/AddPlayer"
 import { serverTimestamp } from "firebase/firestore"
 import { onSubmit } from "../Pages/AddPlayer"
 import TableContainer from "../Components/Table/TableContainer"
-const tableData = require("../script/table_international_goals.json")
+import { LoadingPage } from "../Components/LoadingPage"
+import _ from "lodash"
 
+const tableData = require("../script/table_international_goals.json")
 export const TableContainerCustom = (props) => {
     const [Team, setTeam] = useState(null)
     const Path = useLocation().pathname
-    const [data, setData] = useState(tableData)
-    const [dataFilter, setDataFilter] = useState(data)
+    const [data, setData] = useState([])
+    const [dataFilter, setDataFilter] = useState([])
+    const selectData = [...new Set(data.map((d) => d.national.name))]
     const onMutate = async () => {
-        const docSnap = await getDocs(query(collection(db, "Player")))
-        const data = docSnap.docs.map((doc) => doc.data())
-        setData(data)
+        try {
+            const docSnap = await getDocs(query(collection(db, "Player")))
+            const data = docSnap.docs.map((doc) => doc.data())
+            setData(data)
+        } catch (error) {
+            setData(tableData)
+            setDataFilter(tableData)
+        }
     }
 
     useEffect(() => {
-        return () => {
-            onMutate()
-        }
+        onMutate()
     }, [])
 
     const onSelectTeam = (e) => {
         setTeam(e.target.value)
-        if (props.selectData.includes(e.target.value)) {
+        if (selectData.includes(e.target.value)) {
             setDataFilter(
                 data.filter((p) => {
                     if (isNationalData) return p?.national.name === e.target.value
@@ -41,9 +47,9 @@ export const TableContainerCustom = (props) => {
             setDataFilter(data)
         }
     }
-
     const isNationalData = Path === "/national"
     const isTeamData = Path === "/team"
+    if (_.isEmpty(data)) return <LoadingPage />
     return (
         <TableContainer
             {...props}
@@ -67,8 +73,10 @@ export const TableContainerCustom = (props) => {
             }}
             filters={[onSelectTeam]}
             data={dataFilter}
-            Team={Team}
+            setData={setDataFilter}
+            team={Team}
             setTeam={setTeam}
+            selectData={[...new Set(data.map((d) => d.national.name))]}
         />
     )
 }
