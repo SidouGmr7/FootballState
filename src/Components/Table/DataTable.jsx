@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import {
     Paper,
     Table,
@@ -12,18 +12,35 @@ import {
 } from "@material-ui/core"
 import { withPopoverMui } from "../Dialog/PopoverContainer"
 import AddPlayer from "../../Pages/AddPlayer"
+import { usePlayers } from "../../hooks/usePlayers"
 
 export default function DataTable(props) {
+    // const { fetchData } = usePlayers()
+
     const [state, setState] = useState({
         transactionPage: 0,
         transactionPerPage: props.rowPerPage || 5,
         sortColumn: null,
-        sortDirection: "▲",
+        sortDirection: "",
     })
     const { transactionPage, transactionPerPage } = state
     const startIndex = transactionPage * transactionPerPage
     const endIndex = startIndex + transactionPerPage
     const data = props.data.slice(startIndex, endIndex)
+
+    useEffect(() => {
+        setState((prevState) => ({
+            ...prevState,
+            transactionPage: 0,
+            transactionPerPage: props.rowPerPage || 5,
+        }))
+    }, [props.data])
+
+
+    // useEffect(() => {
+    //     props.setData(data)
+    // }, [data])
+
     const handlerPageChanged = (event, newPage) => {
         setState((prevState) => ({ ...prevState, transactionPage: newPage }))
     }
@@ -55,10 +72,10 @@ export default function DataTable(props) {
         }
         const sortedData = [...props.data].sort((a, b) => {
             if (cul.value(a) < cul.value(b)) {
-                return newSortDirection === "▲" ? -1 : 1
+                return newSortDirection === "▲" ? 1 : -1
             }
             if (cul.value(a) > cul.value(b)) {
-                return newSortDirection === "▲" ? 1 : -1
+                return newSortDirection === "▲" ? -1 : 1
             }
             return 0
         })
@@ -81,7 +98,7 @@ export default function DataTable(props) {
                                 {state.sortColumn === cul.value &&
                                     setState((prevState) => ({
                                         ...prevState,
-                                        sortDirection: "▲" ? " ▲" : " ▼",
+                                        sortDirection: "▲" ? "▼" : "▲",
                                     }))}
                             </TableCell>
                         ))}
@@ -96,7 +113,9 @@ export default function DataTable(props) {
                                 {props.column.map((cul, index) => (
                                     <TableCell key={index}>{cul.value(d, props.team)}</TableCell>
                                 ))}
-                                <TableCell>{<EditPopover data={d} onEdit={true} />}</TableCell>
+                                <TableCell>
+                                    {<EditPopover data={d} onEdit={true} fetchData={props.fetchData} />}
+                                </TableCell>
                             </TableRow>
                         )
                     })}

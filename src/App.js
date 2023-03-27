@@ -6,7 +6,7 @@ import AddPlayer from "./Pages/AddPlayer"
 import Home from "./Pages/Home"
 import { TableContainerCustom as TableContainer } from "./Pages/TableContainerCustom"
 import { nationalColumn, equipeColumn } from "./data/ColumnsData"
-import { teamData, countryData } from "./data/RowData"
+import { teamData } from "./data/RowData"
 
 function App() {
     return (

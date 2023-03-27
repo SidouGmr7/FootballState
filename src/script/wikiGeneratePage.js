@@ -31,18 +31,24 @@ function generatePlayerData(html) {
         return merged
     })
 }
-axios
-    .get(INTERNATIONAL_GOALS_TEMPLATE)
+
+
+export function generateTemplate(url){
+    axios
+    .get(url)
     .then((response) => {
-        console.log(`${INTERNATIONAL_GOALS_TEMPLATE}  ...wait`)
+        console.log(`${url}  ...wait`)
         const $ = load(response.data)
         const html = $.html()
         // fs.writeFileSync("src/script/table_international_goals.html", html)
-        console.log(`${INTERNATIONAL_GOALS_TEMPLATE}  ...success`)
+        console.log(`${url}  ...success`)
         const PlayerData = generatePlayerData(html)
         fs.writeFileSync("src/script/table_international_goals.json", JSON.stringify(PlayerData))
-        return PlayerData
+        // savePlayerDataToFile(PlayerData);
     })
     .catch((error) => {
         console.error(error)
     })
+}
+
+generateTemplate(INTERNATIONAL_GOALS_TEMPLATE)

@@ -1,59 +1,26 @@
-import React, { useState, useEffect } from "react"
-import { db } from "../firebase.config"
-import { collection, getDocs, query } from "firebase/firestore"
-import { useLocation } from "react-router-dom"
+import React, { useState } from "react"
 import { v4 as uuidv4 } from "uuid"
-
 import AddPlayer from "../Pages/AddPlayer"
 import { serverTimestamp } from "firebase/firestore"
 import { onSubmit } from "../Pages/AddPlayer"
 import TableContainer from "../Components/Table/TableContainer"
-import { LoadingPage } from "../Components/LoadingPage"
-import _ from "lodash"
+import { usePlayers } from "../hooks/usePlayers"
+import { CountryAndTeamFilter } from "./Components/CountryAndTeamFilter"
 
-const tableData = require("../script/table_international_goals.json")
+let tableData = []
+try {
+    tableData = require("../script/table_international_goals.json")
+} catch (error) {}
+
 export const TableContainerCustom = (props) => {
-    const [Team, setTeam] = useState(null)
-    const Path = useLocation().pathname
-    const [data, setData] = useState([])
-    const [dataFilter, setDataFilter] = useState([])
-    const selectData = [...new Set(data.map((d) => d.national.name))]
-    const onMutate = async () => {
-        try {
-            const docSnap = await getDocs(query(collection(db, "Player")))
-            const data = docSnap.docs.map((doc) => doc.data())
-            setData(data)
-        } catch (error) {
-            setData(tableData)
-            setDataFilter(tableData)
-        }
-    }
-
-    useEffect(() => {
-        onMutate()
-    }, [])
-
-    const onSelectTeam = (e) => {
-        setTeam(e.target.value)
-        if (selectData.includes(e.target.value)) {
-            setDataFilter(
-                data.filter((p) => {
-                    if (isNationalData) return p?.national.name === e.target.value
-                    if (isTeamData) return p.team.map((t) => t.name === e.target.value)
-                    return null
-                })
-            )
-        } else {
-            setDataFilter(data)
-        }
-    }
-    const isNationalData = Path === "/national"
-    const isTeamData = Path === "/team"
-    if (_.isEmpty(data)) return <LoadingPage />
+    const { players, inProgress, country, fetchData, setInProgress } = usePlayers()
+    const [playersAfterFilter, setPlayersAfterFilter] = useState(null)
+    const [team, setTeam] = useState(null)
     return (
         <TableContainer
             {...props}
             updateDataFromTemplate={async (onEdit) => {
+                setInProgress(true)
                 tableData.map(async (data) => {
                     const uuid = uuidv4()
                     const newData = {
@@ -66,16 +33,21 @@ export const TableContainerCustom = (props) => {
                     }
                     onSubmit(newData, onEdit)
                 })
+                fetchData()
             }}
             ActionPopover={{
                 components: AddPlayer,
                 buttonName: "Add Player",
             }}
-            filters={[onSelectTeam]}
-            data={dataFilter}
-            setData={setDataFilter}
-            team={Team}
-            selectData={[...new Set(data.map((d) => d.national.name))]}
+            filters={[
+                <CountryAndTeamFilter setDataAfterFilter={setPlayersAfterFilter} setTeam={setTeam} dataFilterOnIt={players} />,
+            ]}
+            data={playersAfterFilter || players}
+            setData={setPlayersAfterFilter}
+            team={team}
+            selectData={country}
+            fetchData={fetchData}
+            inProgress={inProgress}
         />
     )
 }

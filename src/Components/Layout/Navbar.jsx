@@ -1,8 +1,15 @@
 import SidouProfile2 from '../../img/SidouProfile2.jpg'
 import { Link } from 'react-router-dom'
 import { TbBallFootball } from 'react-icons/tb'
+import { SiFirebase } from 'react-icons/si'
+import { VscJson } from 'react-icons/vsc'
+
+import { Chip } from "@material-ui/core"
+import { usePlayers } from "../../hooks/usePlayers"
+
 
 function Navbar() {
+  const { status } = usePlayers()
   return (
     <header className='bg-slate-900 z-50 p-4 w-screen bg-primary'>
       <div className='md:flex w-full h-full items-center justify-between'>
@@ -48,6 +55,9 @@ function Navbar() {
               className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full'
               alt='userprofile'
             />
+          </div>
+          <div>
+          <Chip icon={status.firebase ? <SiFirebase className='text-black text-2xl'/> : <VscJson className='text-white text-2xl'/>} label={status.label} style={{background: status.firebase ? '#FFCB2B' : '#A80000',color: 'white'}} />
           </div>
         </div>
       </div>

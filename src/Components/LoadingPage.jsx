@@ -1,6 +1,6 @@
 import React from "react"
 import ReactLoading from "react-loading"
-import { Grid, makeStyles, Typography, useTheme } from "@material-ui/core"
+import { Grid, makeStyles, Typography } from "@material-ui/core"
 
 const useStyles = makeStyles((theme) => ({
     loadingAreaContainer: {

@@ -1,8 +1,9 @@
 {
   "name": "footstat",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "private": true,
-  "type": "module",
+  "license": "MIT",
+
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
@@ -23,14 +24,16 @@
     "react-toastify": "^9.0.8",
     "tailwind": "^4.0.0",
     "uuid": "^9.0.0",
-    "xmldom": "^0.6.0"
+    "xmldom": "^0.6.0",
+    "esm": "^3.2.25"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generate": "node src/script/wikiGeneratePage.js"
+
+    "generate": "env-cmd --verbose node -r esm src/script/wikiGeneratePage.js"
   },
   "eslintConfig": {
     "extends": [
@@ -53,10 +56,10 @@
   "devDependencies": {
     "autoprefixer": "^10.4.8",
     "postcss": "^8.4.16",
-    "tailwindcss": "^3.1.8"
+    "tailwindcss": "^3.1.8",
+    "env-cmd": "^10.1.0"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "tailwind.config.js",
-  "author": "",
-  "license": "ISC"
+  "author": ""
 }
