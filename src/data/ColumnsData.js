@@ -32,12 +32,12 @@ export const nationalColumn = [
             return (row.national.goals / row.national.match).toFixed(2)
         },
     },
-    {
-        name: "LastUpdate",
-        value: (row) => {
-            return row.lastUpdate ? moment(row.lastUpdate.toDate().toString()).format("DD/MM/YY") : null
-        },
-    },
+    // {
+    //     name: "LastUpdate",
+    //     value: (row) => {
+    //         return row.lastUpdate ? moment(row.lastUpdate.toDate().toString()).format("DD/MM/YY") : null
+    //     },
+    // },
 ]
 
 export const equipeColumn = [

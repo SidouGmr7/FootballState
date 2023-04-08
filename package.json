@@ -33,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
 
-    "generate": "env-cmd --verbose node -r esm src/script/wikiGeneratePage.js"
+    "generate": "env-cmd --verbose node -r esm src/script/generate.js"
   },
   "eslintConfig": {
     "extends": [

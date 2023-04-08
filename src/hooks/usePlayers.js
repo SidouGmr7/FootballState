@@ -17,8 +17,8 @@ export function usePlayers() {
     const fetchData = async () => {
         setInProgress(true)
         try {
-            const docSnap = await getDocs(query(collection(db, "Player")))
-            const players = docSnap.docs.map((doc) => doc.data())
+            // const docSnap = await getDocs(query(collection(db, "Player")))
+            // const players = docSnap.docs.map((doc) => doc.data())
             if (!_.isEmpty(players)) {
                 setPlayers(players)
                 setCountry([...new Set(players.map((d) => d.national.name))])

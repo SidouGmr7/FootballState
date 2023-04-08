@@ -18,13 +18,11 @@ export const onSubmit = async (data, onEdit, fetchData, handleClose) => {
         if (onEdit) {
             await updateDoc(doc(db, "Player", data.uuid), data)
         } else {
-            const collectionRef = collection(db, "Player")
-            const queryRef = query(collectionRef, where("name", "==", data.name))
+            const queryRef = query(collection(db, "Player"), where("name", "==", data.name))
             getDocs(queryRef).then(async (querySnapshot) => {
-                if (querySnapshot.size > 0) {
-                    alert("this player is existe")
-                } else {
+                if (querySnapshot.size <= 0) {
                     await setDoc(doc(db, "Player", data.uuid), data)
+                    alert(`${data.name} is added`)
                 }
             })
             data["id"] = uuidv4()

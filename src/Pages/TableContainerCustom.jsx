@@ -48,6 +48,7 @@ export const TableContainerCustom = (props) => {
             selectData={country}
             fetchData={fetchData}
             inProgress={inProgress}
+            rowPerPage={8}
         />
     )
 }

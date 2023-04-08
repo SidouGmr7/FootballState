@@ -56,13 +56,13 @@ export default function DataTable(props) {
         return `${from}-${to} of ${count !== -1 ? count : "more than {page}"}`
     }
 
-    const EditPopover = withPopoverMui(AddPlayer, ({ onClick, index }) => {
-        return (
-            <IconButton key={index} onClick={onClick}>
-                <Icon>+</Icon>
-            </IconButton>
-        )
-    })
+    // const EditPopover = withPopoverMui(AddPlayer, ({ onClick, index }) => {
+    //     return (
+    //         <IconButton key={index} onClick={onClick}>
+    //             <Icon>+</Icon>
+    //         </IconButton>
+    //     )
+    // })
 
     const handleSort = (cul) => {
         const { sortColumn, sortDirection } = state
@@ -102,7 +102,7 @@ export default function DataTable(props) {
                                     }))}
                             </TableCell>
                         ))}
-                        <TableCell>Edit</TableCell>
+                        {/* <TableCell>Edit</TableCell> */}
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -113,9 +113,9 @@ export default function DataTable(props) {
                                 {props.column.map((cul, index) => (
                                     <TableCell key={index}>{cul.value(d, props.team)}</TableCell>
                                 ))}
-                                <TableCell>
+                                {/* <TableCell>
                                     {<EditPopover data={d} onEdit={true} fetchData={props.fetchData} />}
-                                </TableCell>
+                                </TableCell> */}
                             </TableRow>
                         )
                     })}
@@ -130,7 +130,7 @@ export default function DataTable(props) {
                 page={transactionPage}
                 backIconButtonProps={{ "aria-label": "Previous Page" }}
                 nextIconButtonProps={{ "aria-label": "Next Page" }}
-                rowsPerPageOptions={[5, 10, 20, 25]}
+                rowsPerPageOptions={[props.rowPerPage, 5, 10, 20, 25]}
                 onPageChange={handlerPageChanged}
                 onRowsPerPageChange={handlerPerPageChanged}
             />

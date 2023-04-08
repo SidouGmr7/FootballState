@@ -31,7 +31,6 @@ export function correctionCssSelector(replaces) {
 export function savePlayerDataToFile(PlayerData) {
     const data = JSON.stringify(PlayerData, null, 2); // the second argument, null, is a replacer function to filter out properties, and the third argument, 2, specifies the number of spaces to use as white space for pretty-printing
     const file = new Blob([data], { type: "application/json" });
-  
     const a = document.createElement("a");
     a.href = URL.createObjectURL(file);
     a.download = "table_international_goals.json";
