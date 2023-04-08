@@ -1,26 +1,7 @@
 import axios from "axios"
 import fs from "fs"
 import { load } from "cheerio"
-import { INTERNATIONAL_GOALS_TEMPLATE, CHAMPIONS_LEAGUE_GOALS_TEMPLATE } from "./config/config.js"
-import { generate_international_golas } from "./templatesGenerate.js"
-
-const template = {
-    internationalGolas: {
-        dataToJson: generate_international_golas,
-        fileName: "international_golas",
-        url: INTERNATIONAL_GOALS_TEMPLATE,
-    },
-
-    championsLeagueGoals: {
-        dataToJson: generate_international_golas,
-        fileName: "champions_league_goals",
-        url: CHAMPIONS_LEAGUE_GOALS_TEMPLATE,
-    },
-}
-
-
-const { dataToJson, fileName, url } = template.championsLeagueGoals
-
+import { templates } from "./templates"
 export function generateTemplate(dataToJson, fileName, url) {
     axios
         .get(url)
@@ -38,5 +19,4 @@ export function generateTemplate(dataToJson, fileName, url) {
             console.error(error)
         })
 }
-
-generateTemplate(dataToJson, fileName, url)
+templates.map(({ dataToJson, fileName, url }) => generateTemplate(dataToJson, fileName, url))

@@ -43,6 +43,11 @@ function Navbar() {
                 Equipe
               </li>
             </Link>
+            <Link to='/ucl'>
+              <li className='text-lg hover:scale-110 transition cursor-pointer text-slate-200 hover:text-green-500'>
+                UCL
+              </li>
+            </Link>
             <Link to='/add'>
               <li className='text-lg hover:scale-110 transition cursor-pointer text-slate-200 hover:text-green-500'>
                 Add

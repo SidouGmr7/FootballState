@@ -106,12 +106,12 @@ export default function DataTable(props) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data.map((d, index) => {
+                    {data.map((row, index) => {
                         return (
                             <TableRow key={index} hover={true} tabIndex={-1}>
                                 <TableCell>{index + 1 + startIndex}</TableCell>
                                 {props.column.map((cul, index) => (
-                                    <TableCell key={index}>{cul.value(d, props.team)}</TableCell>
+                                    <TableCell key={index}>{cul.value(row, props.team)}</TableCell>
                                 ))}
                                 {/* <TableCell>
                                     {<EditPopover data={d} onEdit={true} fetchData={props.fetchData} />}

@@ -5,7 +5,7 @@ export function parserHtmlToJSON(html, selector, field, useparseInt = false) {
     const $ = load(html)
     const Object = []
     $(selector).each((index, element) => {
-        if (useparseInt ? parseInt($(element).text()) : true) {
+        if (useparseInt ? parseInt($(element).text()) || parseInt($(element).text()) === 0 : true) {
             Object.push({
                 [field]: useparseInt ? parseInt($(element).text()) : $(element).text(),
             })

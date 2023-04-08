@@ -92,3 +92,48 @@ export const equipeColumn = [
         },
     },
 ]
+
+export const uclColumn = [
+    {
+        name: "Name",
+        value: (row) => {
+            return row.name
+        },
+    },
+    {
+        name: "National",
+        value: (row) => {
+            return row.national ? row.national.name : 'NaN'
+        },
+    },
+    {
+        name: "Goals",
+        value: (row) => {
+            return row.UCL.goals
+        },
+    },
+    {
+        name: "Match",
+        value: (row) => {
+            return row.UCL.match
+        },
+    },
+    {
+        name: "Assist",
+        value: (row) => {
+            return row.UCL.assists
+        },
+    },
+    {
+        name: "Ratio",
+        value: (row) => {
+            return (row.UCL.goals / row.UCL.match).toFixed(2)
+        },
+    },
+    // {
+    //     name: "LastUpdate",
+    //     value: (row) => {
+    //         return row.lastUpdate ? moment(row.lastUpdate.toDate().toString()).format("DD/MM/YY") : null
+    //     },
+    // },
+]

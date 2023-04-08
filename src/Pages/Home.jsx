@@ -17,6 +17,12 @@ const Home = () => {
             Equipe
           </button>
         </Link>
+        <Link to='/ucl'>
+          <button className='text-2xl bg-green-600 hover:bg-green-800  md:hover:scale-110 transition text-white py-5 px-12 rounded-full'>
+            UCL
+          </button>
+        </Link>
+        
       </div>
     </div>
   )
