@@ -5,7 +5,7 @@ import _ from "lodash"
 
 let tableData = []
 try {
-    tableData = require("../script/table_international_goals.json")
+    tableData = require("../script/json/international_golas.json")
 } catch (error) {}
 
 export function usePlayers() {

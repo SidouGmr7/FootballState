@@ -7,11 +7,6 @@ import TableContainer from "../Components/Table/TableContainer"
 import { usePlayers } from "../hooks/usePlayers"
 import { CountryAndTeamFilter } from "./Components/CountryAndTeamFilter"
 
-let tableData = []
-try {
-    tableData = require("../script/table_international_goals.json")
-} catch (error) {}
-
 export const TableContainerCustom = (props) => {
     const { players, inProgress, country, fetchData, setInProgress } = usePlayers()
     const [playersAfterFilter, setPlayersAfterFilter] = useState(null)
@@ -21,7 +16,7 @@ export const TableContainerCustom = (props) => {
             {...props}
             updateDataFromTemplate={async (onEdit) => {
                 setInProgress(true)
-                tableData.map(async (data) => {
+                players.map(async (data) => {
                     const uuid = uuidv4()
                     const newData = {
                         ...data,
