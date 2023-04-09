@@ -21,17 +21,17 @@ export function usePlayers() {
             // const players = docSnap.docs.map((doc) => doc.data())
             if (!_.isEmpty(players)) {
                 setPlayers(players)
-                setCountry([...new Set(players.map((d) => d.national && d.national.name))])
+                setCountry([...new Set(players.map((d) => d.national.name))])
                 setStatus({ label: "Firebase", firebase: true })
             } else {
                 setPlayers(tableData)
-                setCountry([...new Set(tableData?.map((d) => d.national && d.national.name))])
+                setCountry([...new Set(tableData?.map((d) => d.national.name))])
                 setStatus({ label: "Json", firebase: false })
             }
             // setDataFilter(tableData)
         } catch (error) {
             setPlayers(tableData)
-            setCountry([...new Set(tableData.map((d) => d.national && d.national.name))])
+            setCountry([...new Set(tableData.map((d) => d.national.name))])
             setStatus({ label: "Json", firebase: false })
             console.error(error)
         } finally {
@@ -43,5 +43,5 @@ export function usePlayers() {
         fetchData()
     }, [])
 
-    return { players, inProgress, setInProgress, setPlayers, country, fetchData, status }
+    return { players, setPlayers, inProgress, setInProgress, country, fetchData, status }
 }

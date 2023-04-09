@@ -9,14 +9,14 @@ export function generateTemplate(dataToJson, fileName, url) {
             console.log(`${url}  ...wait`)
             const $ = load(response.data)
             const html = $.html()
-            fs.writeFileSync(`src/script/html/${fileName}.html`, html)
+            // fs.writeFileSync(`src/script/html/${fileName}.html`, html)
             console.log(`${url}  ...success`)
             const PlayerData = dataToJson(html)
             fs.writeFileSync(`src/script/json/${fileName}.json`, JSON.stringify(PlayerData))
             // savePlayerDataToFile(PlayerData);
         })
         .catch((error) => {
-            console.error(error)
+            console.error(error.cause.errno)
         })
 }
 templates.map(({ dataToJson, fileName, url }) => generateTemplate(dataToJson, fileName, url))

@@ -9,7 +9,7 @@ export function generate_international_golas(html) {
         "td:nth-child(5) > a:nth-child(1), td:nth-child(4) > a:nth-child(1),tr:nth-child(13) > td:nth-child(5)",
         "goals",
         true
-    )
+    ).filter((goal) => !isNaN(goal.goals))
     const Match = parserHtmlToJSON(
         html,
         correctionCssSelector([
@@ -42,11 +42,10 @@ export function generate_champions_league_goals(html) {
             { name: item.name[0] === " " ? item.name.substring(1) : item.name },
             { ...position[index] },
             { UCL: { ...Match[index], ...Goals[index], ...Assists[index] } },
-            tableData.some((player) => player.name === item.name) && {
-                national: { ...tableData.find((player) => player.name === item.name).national },
-            }
+            tableData.some((player) => player.name === item.name)
+                ? { national: { ...tableData.find((player) => player.name === item.name).national } }
+                : { national: { name: NaN, match: NaN, goals: NaN } }
         )
-
         return merged
     })
 }
