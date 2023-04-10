@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import { v4 as uuidv4 } from "uuid"
-import AddPlayer from "../Pages/AddPlayer"
+import AddPlayer from "../AddPlayer"
 import { serverTimestamp } from "firebase/firestore"
-import { onSubmit } from "../Pages/AddPlayer"
-import TableContainer from "../Components/Table/TableContainer"
-import { usePlayers } from "../hooks/usePlayers"
-import { CountryAndTeamFilter } from "./Components/CountryAndTeamFilter"
+import { onSubmit } from "../AddPlayer"
+import TableContainer from "../../Components/Table/TableContainer"
+import { usePlayers } from "../../hooks/usePlayers"
+import { CountryAndTeamFilter } from "../Filters/CountryAndTeamFilter"
 
 export const TableContainerCustom = (props) => {
     const { players, inProgress, country, fetchData, setInProgress } = usePlayers()
@@ -32,10 +32,14 @@ export const TableContainerCustom = (props) => {
             }}
             ActionPopover={{
                 components: AddPlayer,
-                buttonName: "Add Player",
+                buttonName: "Add",
             }}
             filters={[
-                <CountryAndTeamFilter setDataAfterFilter={setPlayersAfterFilter} setTeam={setTeam} dataFilterOnIt={players} />,
+                <CountryAndTeamFilter
+                    setDataAfterFilter={setPlayersAfterFilter}
+                    setTeam={setTeam}
+                    dataFilterOnIt={players}
+                />,
             ]}
             data={playersAfterFilter || players}
             setData={setPlayersAfterFilter}

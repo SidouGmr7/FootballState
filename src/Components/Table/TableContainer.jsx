@@ -18,15 +18,6 @@ const TableContainer = (props) => {
         <div className='min-h-screen'>
             <div className='m-8'>
                 <Grid container className='mb-8'>
-                    <Grid item>
-                        <Typography
-                            className='mt-8'
-                            variant='caption'
-                            style={{ fontSize: 20 }}
-                            gutterBottom={true}>
-                            Nationale Team Statistic
-                        </Typography>
-                    </Grid>
                     <Grid container spacing={3} justifyContent='flex-end'>
                         {filters.map((filter, index) => {
                             const FilterComponent = filter.type
@@ -43,7 +34,7 @@ const TableContainer = (props) => {
                                             onClick={() =>
                                                 props.updateDataFromTemplate(button === "Add" ? false : true)
                                             }>
-                                            {button} Template
+                                            {button} Temp
                                         </Button>
                                     </Grid>
                                 )

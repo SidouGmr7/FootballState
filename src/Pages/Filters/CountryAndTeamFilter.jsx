@@ -8,8 +8,8 @@ export const CountryAndTeamFilter = (props) => {
     const { country } = usePlayers()
     const { setDataAfterFilter, setTeam, dataFilterOnIt } = props
     const path = useLocation().pathname
-    const isNationalData = path === "/national"
-    const isTeamData = path === "/team"
+    const isNationalData = path === "/app/national"
+    const isTeamData = path === "/app/team"
 
     const onSelectTeam = (e) => {
         setTeam(e.target.value)
