@@ -1,38 +1,19 @@
 import { useEffect, useState } from "react"
-import { collection, getDocs, query } from "firebase/firestore"
-import { db } from "../firebase.config.js"
-import _ from "lodash"
-
-let tableData = []
-try {
-    tableData = require("../script/json/champions_league_goals.json")
-} catch (error) {}
+import axios from "axios"
+import { urlPath } from "../config/config"
 
 export function usePlayers() {
     const [inProgress, setInProgress] = useState(false)
     const [players, setPlayers] = useState([])
     const [country, setCountry] = useState([])
-    const [status, setStatus] = useState({ label: "Firebase", firebase: true })
 
     const fetchData = async () => {
         setInProgress(true)
         try {
-            // const docSnap = await getDocs(query(collection(db, "Player")))
-            // const players = docSnap.docs.map((doc) => doc.data())
-            if (!_.isEmpty(players)) {
-                setPlayers(players)
-                setCountry([...new Set(players.map((d) => d.national.name))])
-                setStatus({ label: "Firebase", firebase: true })
-            } else {
-                setPlayers(tableData)
-                setCountry([...new Set(tableData?.map((d) => d.national.name))])
-                setStatus({ label: "Json", firebase: false })
-            }
-            // setDataFilter(tableData)
+            const res = await axios.get(`${urlPath}ucl`)
+            setPlayers(res.data)
+            setCountry([...new Set(players.map((d) => d.national.name))])
         } catch (error) {
-            setPlayers(tableData)
-            setCountry([...new Set(tableData.map((d) => d.national.name))])
-            setStatus({ label: "Json", firebase: false })
             console.error(error)
         } finally {
             setInProgress(false)
@@ -43,5 +24,5 @@ export function usePlayers() {
         fetchData()
     }, [])
 
-    return { players, setPlayers, inProgress, setInProgress, country, fetchData, status }
+    return { players, setPlayers, inProgress, setInProgress, country, fetchData }
 }

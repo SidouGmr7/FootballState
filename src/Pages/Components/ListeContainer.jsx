@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Grid, makeStyles, Typography, Paper, useMediaQuery, Divider } from "@material-ui/core"
-import { fetchRecordPlayer } from '../../data/dataAction'
+import axios from "axios"
+import { urlPath } from "../../config/config"
 
 const useStyles = makeStyles((theme) => ({
     zoneCard: {
@@ -31,18 +32,18 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-export const ListeContainer = (props) => {
+export const ListeContainer = () => {
     const classes = useStyles()
     const isMd = useMediaQuery("(max-width: 810px)")
     const [recordPlayer, setRecordPlayer] = useState(null);
     console.log('response',recordPlayer);
 
     useEffect(() => {
-        const getRecordPlayer = async () => {
-          const response = await fetchRecordPlayer();
-          setRecordPlayer(response.data);
+        const fetchRecordPlayer = async () => {
+            const res = await axios.get(`${urlPath}record_player`)
+            setRecordPlayer(res.data);
         };
-        getRecordPlayer();
+        fetchRecordPlayer();
       }, []);
     return recordPlayer && recordPlayer.map((record) => (
         <Grid container sm={12} md={12}>

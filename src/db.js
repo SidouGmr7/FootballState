@@ -4,7 +4,7 @@ const record_player = require("./data/recordPlayer.json")
 module.exports = () => {
     const data = {
         record_player: record_player,
-        UCL: tableData
+        ucl: tableData
     }
     return data
 }
