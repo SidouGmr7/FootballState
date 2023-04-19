@@ -4,7 +4,6 @@ import { teamData } from "./data/RowData"
 import { AccessAlarm, ThreeDRotation } from "@mui/icons-material"
 import AddPlayer from "./Pages/AddPlayer"
 import Home from "./Pages/Home"
-import  PlayerRecordGeneral  from "./data/PlayerRecordGeneral.json"
 import { ListeContainer } from './Pages/Components/ListeContainer';
 
 
@@ -29,7 +28,7 @@ export const sliderLink = [
     },
     {
         title: "RecordGeneral",
-        components: <ListeContainer data={PlayerRecordGeneral} />,
+        components: <ListeContainer />,
         link: "/app/record_general",
         icon: <AccessAlarm />,
     },
