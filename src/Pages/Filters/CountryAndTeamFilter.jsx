@@ -8,7 +8,7 @@ export const CountryAndTeamFilter = (props) => {
     const { country } = usePlayers()
     const { setDataAfterFilter, setTeam, dataFilterOnIt } = props
     const path = useLocation().pathname
-    const isNationalData = path === "/app/national"
+    const isCountryData = path === "/app/country"
     const isTeamData = path === "/app/team"
 
     const onSelectTeam = (e) => {
@@ -16,7 +16,7 @@ export const CountryAndTeamFilter = (props) => {
         if (country.includes(e.target.value)) {
             setDataAfterFilter(
                 dataFilterOnIt.filter((p) => {
-                    if (isNationalData) return p.national.name === e.target.value
+                    if (isCountryData) return p.country.name === e.target.value
                     if (isTeamData) return p.team.map((t) => t.name === e.target.value)
                     return null
                 })

@@ -5,8 +5,8 @@ const Home = () => {
     return (
         <div style={{ backgroundImage: `url(${HomeBG})` }} className='h-screen bg-fixed'>
             <div className='flex justify-center py-60 gap-5'>
-                <Link to='/app/national'>
-                    <button className='buttonHome'>National</button>
+                <Link to='/app/country'>
+                    <button className='buttonHome'>Country</button>
                 </Link>
                 <Link to='/app/team'>
                     <button className='buttonHome'>Equipe</button>

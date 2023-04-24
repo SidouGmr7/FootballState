@@ -24,7 +24,7 @@ export const TextField = ({ name, field }) => {
 export const SelectField = ({ name, choices, field, value }) => {
     const { setFieldValue } = useFormikContext()
     return (
-        <div classname='w-full md:w-1/2'>
+        <div className='w-full md:w-1/2'>
             <select
                 name={name}
                 className={`${inputstyle} px-10 py-3`}

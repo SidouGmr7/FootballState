@@ -41,16 +41,16 @@ export const AddPlayerForm = (props) => {
                     choices={positionData}
                 />
             </div>
-            <label class={labelStyle}>Country</label>
+            <label className={labelStyle}>Country</label>
             <div className='flex mb-6'>
                 <SelectField
-                    name='nationalname'
+                    name='countryname'
                     choices={country}
-                    value={values.national.name}
-                    field={`national.name`}
+                    value={values.country.name}
+                    field={`country.name`}
                 />
-                <NumberField name='match' field={`national.match`} value={values.national.match} />
-                <NumberField name='goals' field={`national.goals`} value={values.national.goals} />
+                <NumberField name='match' field={`country.match`} value={values.country.match} />
+                <NumberField name='goals' field={`country.goals`} value={values.country.goals} />
             </div>
             <div className='flex mb-6'>
                 <SelectField

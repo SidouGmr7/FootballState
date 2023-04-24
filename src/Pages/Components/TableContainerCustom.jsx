@@ -8,28 +8,13 @@ import { usePlayers } from "../../hooks/usePlayers"
 import { CountryAndTeamFilter } from "../Filters/CountryAndTeamFilter"
 
 export const TableContainerCustom = (props) => {
-    const { players, inProgress, country, fetchData, setInProgress } = usePlayers()
+    const { data, isFetching, refetch, country } = usePlayers()
     const [playersAfterFilter, setPlayersAfterFilter] = useState(null)
     const [team, setTeam] = useState(null)
     return (
         <TableContainer
             {...props}
-            updateDataFromTemplate={async (onEdit) => {
-                setInProgress(true)
-                players.map(async (data) => {
-                    const uuid = uuidv4()
-                    const newData = {
-                        ...data,
-                        lastUpdate: serverTimestamp(),
-                        uuid: uuid,
-                        position: "Forward",
-                        team_count: 1,
-                        team: [],
-                    }
-                    onSubmit(newData, onEdit)
-                })
-                fetchData()
-            }}
+            updateDataFromTemplate={null}
             ActionPopover={{
                 components: AddPlayer,
                 buttonName: "Add",
@@ -38,15 +23,15 @@ export const TableContainerCustom = (props) => {
                 <CountryAndTeamFilter
                     setDataAfterFilter={setPlayersAfterFilter}
                     setTeam={setTeam}
-                    dataFilterOnIt={players}
+                    dataFilterOnIt={data}
                 />,
             ]}
-            data={playersAfterFilter || players}
+            data={playersAfterFilter || data}
             setData={setPlayersAfterFilter}
             team={team}
             selectData={country}
-            fetchData={fetchData}
-            inProgress={inProgress}
+            // fetchData={fetchData}
+            isFetching={isFetching}
             rowPerPage={8}
         />
     )

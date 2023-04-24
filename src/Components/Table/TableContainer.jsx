@@ -25,7 +25,7 @@ const TableContainer = (props) => {
                         })}
 
                         {props.updateDataFromTemplate &&
-                            ["Add", "Upadate"].map((button, index) => {
+                            ["Upadate"].map((button, index) => {
                                 return (
                                     <Grid item key={index}>
                                         <Button

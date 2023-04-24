@@ -1,5 +1,5 @@
 import { TableContainerCustom as TableContainer } from "./Pages/Components/TableContainerCustom"
-import { nationalColumn, equipeColumn, uclColumn } from "./data/ColumnsData"
+import { countryColumn, equipeColumn, uclColumn } from "./data/ColumnsData"
 import { teamData } from "./data/RowData"
 import { AccessAlarm, ThreeDRotation } from "@mui/icons-material"
 import AddPlayer from "./Pages/AddPlayer"
@@ -9,9 +9,9 @@ import { ListeContainer } from './Pages/Components/ListeContainer';
 
 export const sliderLink = [
     {
-        title: "National",
-        components: <TableContainer column={nationalColumn} />,
-        link: "/app/national",
+        title: "Country",
+        components: <TableContainer column={countryColumn} />,
+        link: "/app/country",
         icon: <ThreeDRotation />,
     },
     {

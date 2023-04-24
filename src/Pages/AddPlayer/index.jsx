@@ -44,22 +44,22 @@ export const setInitiaValuesToTeamData = (team) => {
 }
 
 function AddPlayer(props) {
-    const { data, handleClose, fetchData } = props
+    const { data, handleClose } = props
     const formik = useFormik({
         initialValues: {
             name: data?.name || "",
             position: data?.position || "Forward",
-            national: {
-                name: data?.national.name || "",
-                goals: data?.national.goals || 0,
-                match: data?.national.match || 0,
+            country: {
+                name: data?.country.name || "",
+                goals: data?.country.goals || 0,
+                match: data?.country.match || 0,
             },
             team: setInitiaValuesToTeamData(data?.team, "team"),
             team_count: data?.team_count || 1,
             lastUpdate: serverTimestamp(),
             uuid: data?.uuid || uuidv4(),
         },
-        onSubmit: (values) => onSubmit(values, props.onEdit, fetchData, handleClose),
+        onSubmit: (values) => onSubmit(values, props.onEdit, handleClose),
     })
 
     return (

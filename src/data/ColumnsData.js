@@ -1,7 +1,7 @@
 import moment from "moment"
 import { teamData } from "./RowData"
 
-export const nationalColumn = [
+export const countryColumn = [
     {
         name: "Name",
         value: (row) => {
@@ -9,27 +9,27 @@ export const nationalColumn = [
         },
     },
     {
-        name: "National",
+        name: "Country",
         value: (row) => {
-            return row.national.name
+            return row.country.name
         },
     },
     {
         name: "Goals",
         value: (row) => {
-            return row.national.goals
+            return row.country.goals
         },
     },
     {
         name: "Match",
         value: (row) => {
-            return row.national.match
+            return row.country.match
         },
     },
     {
         name: "Ratio",
         value: (row) => {
-            return (row.national.goals / row.national.match).toFixed(2)
+            return (row.country.goals / row.country.match).toFixed(2)
         },
     },
     // {
@@ -101,9 +101,9 @@ export const uclColumn = [
         },
     },
     {
-        name: "National",
+        name: "country",
         value: (row) => {
-            return row.national ? row.national.name : 'NaN'
+            return row.country ? row.country.name : 'NaN'
         },
     },
     {

@@ -1,9 +1,6 @@
 import SidouProfile2 from "../../img/SidouProfile2.jpg"
 import { Link } from "react-router-dom"
 import { TbBallFootball } from "react-icons/tb"
-import { SiFirebase } from "react-icons/si"
-import { VscJson } from "react-icons/vsc"
-import { Chip } from "@material-ui/core"
 
 function Navbar() {
     return (
@@ -27,8 +24,8 @@ function Navbar() {
                         <Link to='/'>
                             <li className='navbarItem'>Home</li>
                         </Link>
-                        <Link to='/app/national'>
-                            <li className='navbarItem'>National</li>
+                        <Link to='/app/country'>
+                            <li className='navbarItem'>Country</li>
                         </Link>
                         <Link to='/app/team'>
                             <li className='navbarItem'>Equipe</li>

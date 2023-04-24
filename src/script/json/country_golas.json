@@ -1,0 +1,464 @@
+[
+    {
+        "name": "Cristiano Ronaldo",
+        "wikiTemplate": true,
+        "country": { "name": "Portugal", "goals": 122, "match": 198 },
+        "id": 1
+    },
+    {
+        "name": "Ali Daei",
+        "wikiTemplate": true,
+        "country": { "name": "Iran", "goals": 109, "match": 148 },
+        "id": 2
+    },
+    {
+        "name": "Lionel Messi",
+        "wikiTemplate": true,
+        "country": { "name": "Argentina", "goals": 102, "match": 174 },
+        "id": 3
+    },
+    {
+        "name": "Mokhtar Dahari",
+        "wikiTemplate": true,
+        "country": { "name": "Malaysia", "goals": 89, "match": 142 },
+        "id": 4
+    },
+    {
+        "name": "Sunil Chhetri",
+        "wikiTemplate": true,
+        "country": { "name": "India", "goals": 85, "match": 133 },
+        "id": 5
+    },
+    {
+        "name": "Ferenc Puskás",
+        "wikiTemplate": true,
+        "country": { "name": "Hungary", "goals": 84, "match": 84 },
+        "id": 6
+    },
+    {
+        "name": "Ali Mabkhout",
+        "wikiTemplate": true,
+        "country": { "name": "United Arab Emirates", "goals": 81, "match": 109 },
+        "id": 7
+    },
+    {
+        "name": "Godfrey Chitalu",
+        "wikiTemplate": true,
+        "country": { "name": "Zambia", "goals": 79, "match": 111 },
+        "id": 8
+    },
+    {
+        "name": "Hussein Saeed",
+        "wikiTemplate": true,
+        "country": { "name": "Iraq", "goals": 78, "match": 137 },
+        "id": 9
+    },
+    {
+        "name": "Robert Lewandowski",
+        "wikiTemplate": true,
+        "country": { "name": "Poland", "goals": 78, "match": 140 },
+        "id": 10
+    },
+    {
+        "name": " Pelé",
+        "wikiTemplate": true,
+        "country": { "name": "Brazil", "goals": 77, "match": 92 },
+        "id": 11
+    },
+    {
+        "name": "Neymar ",
+        "wikiTemplate": true,
+        "country": { "name": "Brazil", "goals": 77, "match": 124 },
+        "id": 12
+    },
+    {
+        "name": "Vivian Woodward",
+        "wikiTemplate": true,
+        "country": { "name": "England", "goals": 124, "match": 75 },
+        "id": 13
+    },
+    {
+        "name": "Sándor Kocsis",
+        "wikiTemplate": true,
+        "country": { "name": "Hungary", "goals": 75, "match": 68 },
+        "id": 14
+    },
+    {
+        "name": "Kunishige Kamamoto",
+        "wikiTemplate": true,
+        "country": { "name": "Japan", "goals": 75, "match": 76 },
+        "id": 15
+    },
+    {
+        "name": "Bashar Abdullah",
+        "wikiTemplate": true,
+        "country": { "name": "Kuwait", "goals": 75, "match": 134 },
+        "id": 16
+    },
+    {
+        "name": "Romelu Lukaku",
+        "wikiTemplate": true,
+        "country": { "name": "Belgium", "goals": 72, "match": 106 },
+        "id": 17
+    },
+    {
+        "name": "Majed Abdullah",
+        "wikiTemplate": true,
+        "country": { "name": "Saudi Arabia", "goals": 72, "match": 0 },
+        "id": 18
+    },
+    {
+        "name": "Kinnah Phiri",
+        "wikiTemplate": true,
+        "country": { "name": "Malawi", "goals": 71, "match": 71 },
+        "id": 19
+    },
+    {
+        "name": "Kiatisuk Senamuang",
+        "wikiTemplate": true,
+        "country": { "name": "Thailand", "goals": 71, "match": 134 },
+        "id": 20
+    },
+    {
+        "name": "Miroslav Klose",
+        "wikiTemplate": true,
+        "country": { "name": "Germany", "goals": 71, "match": 137 },
+        "id": 21
+    },
+    {
+        "name": "Piyapong Pue-on",
+        "wikiTemplate": true,
+        "country": { "name": "Thailand", "goals": 70, "match": 100 },
+        "id": 22
+    },
+    {
+        "name": "Abdul Kadir",
+        "wikiTemplate": true,
+        "country": { "name": "Indonesia", "goals": 70, "match": 111 },
+        "id": 23
+    },
+    {
+        "name": "Stern John",
+        "wikiTemplate": true,
+        "country": { "name": "Trinidad and Tobago", "goals": 70, "match": 115 },
+        "id": 24
+    },
+    {
+        "name": "Gerd Müller",
+        "wikiTemplate": true,
+        "country": { "name": "West Germany", "goals": 68, "match": 62 },
+        "id": 25
+    },
+    {
+        "name": "Carlos Ruiz",
+        "wikiTemplate": true,
+        "country": { "name": "Guatemala", "goals": 68, "match": 133 },
+        "id": 26
+    },
+    {
+        "name": "Luis Suárez",
+        "wikiTemplate": true,
+        "country": { "name": "Uruguay", "goals": 68, "match": 137 },
+        "id": 27
+    },
+    {
+        "name": "Robbie Keane",
+        "wikiTemplate": true,
+        "country": { "name": "Republic of Ireland", "goals": 68, "match": 146 },
+        "id": 28
+    },
+    {
+        "name": "Hossam Hassan",
+        "wikiTemplate": true,
+        "country": { "name": "Egypt", "goals": 68, "match": 176 },
+        "id": 29
+    },
+    {
+        "name": "Didier Drogba",
+        "wikiTemplate": true,
+        "country": { "name": "Ivory Coast", "goals": 65, "match": 105 },
+        "id": 30
+    },
+    {
+        "name": "Edin Džeko",
+        "wikiTemplate": true,
+        "country": { "name": "Bosnia and Herzegovina", "goals": 64, "match": 127 },
+        "id": 31
+    },
+    {
+        "name": "Jasem Al-Huwaidi",
+        "wikiTemplate": true,
+        "country": { "name": "Kuwait", "goals": 63, "match": 83 },
+        "id": 32
+    },
+    {
+        "name": " Ronaldo",
+        "wikiTemplate": true,
+        "country": { "name": "Brazil", "goals": 62, "match": 98 },
+        "id": 33
+    },
+    {
+        "name": "Ahmed Radhi",
+        "wikiTemplate": true,
+        "country": { "name": "Iraq", "goals": 62, "match": 121 },
+        "id": 34
+    },
+    {
+        "name": "Zlatan Ibrahimović",
+        "wikiTemplate": true,
+        "country": { "name": "Sweden", "goals": 62, "match": 122 },
+        "id": 35
+    },
+    {
+        "name": "Abdul Ghani Minhat",
+        "wikiTemplate": true,
+        "country": { "name": "Malaya", "goals": 61, "match": 71 },
+        "id": 36
+    },
+    {
+        "name": "Teerasil Dangda",
+        "wikiTemplate": true,
+        "country": { "name": "Thailand", "goals": 61, "match": 122 },
+        "id": 37
+    },
+    {
+        "name": "Imre Schlosser",
+        "wikiTemplate": true,
+        "country": { "name": "Hungary", "goals": 59, "match": 68 },
+        "id": 38
+    },
+    {
+        "name": "David Villa",
+        "wikiTemplate": true,
+        "country": { "name": "Spain", "goals": 59, "match": 98 },
+        "id": 39
+    },
+    {
+        "name": "Ali Ashfaq",
+        "wikiTemplate": true,
+        "country": { "name": "Maldives", "goals": 58, "match": 97 },
+        "id": 40
+    },
+    {
+        "name": "Cha Bum-kun",
+        "wikiTemplate": true,
+        "country": { "name": "South Korea", "goals": 58, "match": 136 },
+        "id": 41
+    },
+    {
+        "name": "Edinson Cavani",
+        "wikiTemplate": true,
+        "country": { "name": "Uruguay", "goals": 58, "match": 0 },
+        "id": 42
+    },
+    {
+        "name": "Carlos Pavón",
+        "wikiTemplate": true,
+        "country": { "name": "Honduras", "goals": 57, "match": 57 },
+        "id": 43
+    },
+    {
+        "name": "Clint Dempsey",
+        "wikiTemplate": true,
+        "country": { "name": "United States", "goals": 57, "match": 141 },
+        "id": 44
+    },
+    {
+        "name": "Younis Mahmoud",
+        "wikiTemplate": true,
+        "country": { "name": "Iraq", "goals": 57, "match": 148 },
+        "id": 45
+    },
+    {
+        "name": "Landon Donovan",
+        "wikiTemplate": true,
+        "country": { "name": "United States", "goals": 57, "match": 157 },
+        "id": 46
+    },
+    {
+        "name": "Gabriel Batistuta",
+        "wikiTemplate": true,
+        "country": { "name": "Argentina", "goals": 56, "match": 78 },
+        "id": 47
+    },
+    {
+        "name": "Samuel Eto'o",
+        "wikiTemplate": true,
+        "country": { "name": "Cameroon", "goals": 56, "match": 118 },
+        "id": 48
+    },
+    {
+        "name": "Bader Al-Mutawa",
+        "wikiTemplate": true,
+        "country": { "name": "Kuwait", "goals": 56, "match": 196 },
+        "id": 49
+    },
+    {
+        "name": " Romário",
+        "wikiTemplate": true,
+        "country": { "name": "Brazil", "goals": 55, "match": 70 },
+        "id": 50
+    },
+    {
+        "name": "Harry Kane",
+        "wikiTemplate": true,
+        "country": { "name": "England", "goals": 55, "match": 82 },
+        "id": 51
+    },
+    {
+        "name": "Kazuyoshi Miura",
+        "wikiTemplate": true,
+        "country": { "name": "Japan", "goals": 55, "match": 89 },
+        "id": 52
+    },
+    {
+        "name": "Jan Koller",
+        "wikiTemplate": true,
+        "country": { "name": "Czech Republic", "goals": 55, "match": 91 },
+        "id": 53
+    },
+    {
+        "name": "Iswadi Idris",
+        "wikiTemplate": true,
+        "country": { "name": "Indonesia", "goals": 55, "match": 97 },
+        "id": 54
+    },
+    {
+        "name": "Fandi Ahmad",
+        "wikiTemplate": true,
+        "country": { "name": "Singapore", "goals": 55, "match": 101 },
+        "id": 55
+    },
+    {
+        "name": "Joachim Streich",
+        "wikiTemplate": true,
+        "country": { "name": "East Germany", "goals": 55, "match": 102 },
+        "id": 56
+    },
+    {
+        "name": "Wayne Rooney",
+        "wikiTemplate": true,
+        "country": { "name": "England", "goals": 53, "match": 120 },
+        "id": 57
+    },
+    {
+        "name": "Olivier Giroud",
+        "wikiTemplate": true,
+        "country": { "name": "France", "goals": 53, "match": 122 },
+        "id": 58
+    },
+    {
+        "name": "Poul Nielsen",
+        "wikiTemplate": true,
+        "country": { "name": "Denmark", "goals": 52, "match": 38 },
+        "id": 59
+    },
+    {
+        "name": "Aleksandar Mitrović",
+        "wikiTemplate": true,
+        "country": { "name": "Serbia", "goals": 52, "match": 81 },
+        "id": 60
+    },
+    {
+        "name": "Phil Younghusband",
+        "wikiTemplate": true,
+        "country": { "name": "Philippines", "goals": 52, "match": 108 },
+        "id": 61
+    },
+    {
+        "name": "Javier Hernández",
+        "wikiTemplate": true,
+        "country": { "name": "Mexico", "goals": 52, "match": 109 },
+        "id": 62
+    },
+    {
+        "name": "Jon Dahl Tomasson",
+        "wikiTemplate": true,
+        "country": { "name": "Denmark", "goals": 52, "match": 112 },
+        "id": 63
+    },
+    {
+        "name": "Adnan Al Talyani",
+        "wikiTemplate": true,
+        "country": { "name": "United Arab Emirates", "goals": 52, "match": 161 },
+        "id": 64
+    },
+    {
+        "name": "Lajos Tichy",
+        "wikiTemplate": true,
+        "country": { "name": "Hungary", "goals": 51, "match": 72 },
+        "id": 65
+    },
+    {
+        "name": "Lê Công Vinh",
+        "wikiTemplate": true,
+        "country": { "name": "Vietnam", "goals": 51, "match": 83 },
+        "id": 66
+    },
+    {
+        "name": "Mohamed Salah",
+        "wikiTemplate": true,
+        "country": { "name": "Egypt", "goals": 51, "match": 89 },
+        "id": 67
+    },
+    {
+        "name": "Asamoah Gyan",
+        "wikiTemplate": true,
+        "country": { "name": "Ghana", "goals": 51, "match": 109 },
+        "id": 68
+    },
+    {
+        "name": "Hakan Şükür",
+        "wikiTemplate": true,
+        "country": { "name": "Turkey", "goals": 51, "match": 112 },
+        "id": 69
+    },
+    {
+        "name": "Thierry Henry",
+        "wikiTemplate": true,
+        "country": { "name": "France", "goals": 51, "match": 0 },
+        "id": 70
+    },
+    {
+        "name": "Alexis Sánchez",
+        "wikiTemplate": true,
+        "country": { "name": "Chile", "goals": 51, "match": 153 },
+        "id": 71
+    },
+    {
+        "name": "Karim Bagheri",
+        "wikiTemplate": true,
+        "country": { "name": "Iran", "goals": 50, "match": 50 },
+        "id": 72
+    },
+    {
+        "name": "Robin van Persie",
+        "wikiTemplate": true,
+        "country": { "name": "Netherlands", "goals": 50, "match": 102 },
+        "id": 73
+    },
+    {
+        "name": "Hwang Sun-hong",
+        "wikiTemplate": true,
+        "country": { "name": "South Korea", "goals": 50, "match": 103 },
+        "id": 74
+    },
+    {
+        "name": "Tim Cahill",
+        "wikiTemplate": true,
+        "country": { "name": "Australia", "goals": 50, "match": 108 },
+        "id": 75
+    },
+    {
+        "name": "Shinji Okazaki",
+        "wikiTemplate": true,
+        "country": { "name": "Japan", "goals": 50, "match": 119 },
+        "id": 76
+    },
+    {
+        "name": "Zainal Abidin Hassan",
+        "wikiTemplate": true,
+        "country": { "name": "Malaysia", "goals": 50, "match": 129 },
+        "id": 77
+    }
+]
