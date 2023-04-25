@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import "./App.css"
-import Footer from "./Components/Layout/Footer"
-import Navbar from "./Components/Layout/Navbar"
+import Footer from "./Resource/Layout/Footer"
+import Navbar from "./Resource/Layout/Navbar"
 import { routes, sliderLink } from "./routes"
 import { Dashboard } from "./Pages/Dashboard"
 

@@ -14,7 +14,7 @@ export const TextField = ({ name, field }) => {
                 className={inputstyle}
                 type='text'
                 onChange={(event) => setFieldValue(field, event.target.value)}
-                value={values[field] || ''}
+                value={values[field] || ""}
                 required
             />
         </div>
@@ -61,40 +61,3 @@ export const NumberField = ({ name, field, value }) => {
         </div>
     )
 }
-
-// const InputSection = ({ index, Service, Name }) => {
-//     return (
-//       <div className='flex flex-row mt-6 gap-4'>
-//         <input
-//           key={index}
-//           className={input}
-//           type='text'
-//           id='name'
-//           placeholder='Name'
-//           value={Service}
-//           onChange={(e) => enMuteMult(e, index)}
-//           required
-//         />
-//         <input
-//           key={index}
-//           className={input}
-//           type='number'
-//           id='goals'
-//           placeholder='Goals'
-//           value={Service}
-//           onChange={(e) => enMuteMult(e, index)}
-//           required
-//         />
-//         <input
-//           key={index}
-//           className={input}
-//           type='number'
-//           id='match'
-//           placeholder='Match'
-//           value={Service}
-//           onChange={(e) => enMuteMult(e, index)}
-//           required
-//         />
-//       </div>
-//     )
-//   }

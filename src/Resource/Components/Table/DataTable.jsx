@@ -12,7 +12,7 @@ import {
     TableContainer,
 } from "@material-ui/core"
 import { withPopoverMui } from "../Dialog/PopoverContainer"
-import AddPlayer from "../../Pages/AddPlayer"
+import AddPlayer from "../../../Pages/AddPlayer"
 
 export default function DataTable(props) {
     const [state, setState] = useState({
@@ -96,7 +96,7 @@ export default function DataTable(props) {
                                         }))}
                                 </TableCell>
                             ))}
-                            <TableCell>Edit</TableCell>
+                            {/* <TableCell>Edit</TableCell> */}
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -107,9 +107,7 @@ export default function DataTable(props) {
                                     {props.column.map((cul, index) => (
                                         <TableCell key={index}>{cul.value(row, props.team)}</TableCell>
                                     ))}
-                                    <TableCell>
-                                        {<EditPopover data={row} onEdit={true} />}
-                                    </TableCell>
+                                    {/* <TableCell>{<EditPopover data={row} onEdit={true} />}</TableCell> */}
                                 </TableRow>
                             )
                         })}

@@ -1,5 +1,5 @@
 import React from "react"
-import { SelectField } from "../../Components/Fields/Fields"
+import { SelectField } from "../../Resource/Components/Fields/Fields"
 import { Grid } from "@material-ui/core"
 import { usePlayers } from "../../hooks/usePlayers"
 import { useLocation } from "react-router-dom"

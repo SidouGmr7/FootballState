@@ -1,9 +1,6 @@
 import React, { useState } from "react"
-import { v4 as uuidv4 } from "uuid"
 import AddPlayer from "../AddPlayer"
-import { serverTimestamp } from "firebase/firestore"
-import { onSubmit } from "../AddPlayer"
-import TableContainer from "../../Components/Table/TableContainer"
+import TableContainer from "../../Resource/Components/Table/TableContainer"
 import { usePlayers } from "../../hooks/usePlayers"
 import { CountryAndTeamFilter } from "../Filters/CountryAndTeamFilter"
 
@@ -30,7 +27,6 @@ export const TableContainerCustom = (props) => {
             setData={setPlayersAfterFilter}
             team={team}
             selectData={country}
-            // fetchData={fetchData}
             isFetching={isFetching}
             rowPerPage={8}
         />

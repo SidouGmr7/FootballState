@@ -1,5 +1,5 @@
 import React from "react"
-import { TextField, SelectField, NumberField } from "../../Components/Fields/FormikFields"
+import { TextField, SelectField, NumberField } from "../../Resource/Components/Fields/FormikFields"
 import { positionData } from "../../data/RowData"
 import { labelStyle } from "./tailwind"
 import { Button } from "@material-ui/core"
@@ -17,16 +17,8 @@ export const AddPlayerForm = (props) => {
                 choices={country}
                 field={`team[${index}].name`}
             />
-            <NumberField
-                name='match'
-                value={values.team[index]?.match}
-                field={`team[${index}].match`}
-            />
-            <NumberField
-                name='goals'
-                value={values.team[index]?.goals}
-                field={`team[${index}].goals`}
-            />
+            <NumberField name='match' value={values.team[index]?.match} field={`team[${index}].match`} />
+            <NumberField name='goals' value={values.team[index]?.goals} field={`team[${index}].goals`} />
         </div>
     ))
     return (

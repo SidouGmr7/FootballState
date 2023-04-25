@@ -1,6 +1,7 @@
 import SidouProfile2 from "../../img/SidouProfile2.jpg"
 import { Link } from "react-router-dom"
 import { TbBallFootball } from "react-icons/tb"
+import { navbarLink } from "../../routes"
 
 function Navbar() {
     return (
@@ -21,21 +22,11 @@ function Navbar() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: 200 }}
                         className='flex items-center gap-10'>
-                        <Link to='/'>
-                            <li className='navbarItem'>Home</li>
-                        </Link>
-                        <Link to='/app/country'>
-                            <li className='navbarItem'>Country</li>
-                        </Link>
-                        <Link to='/app/team'>
-                            <li className='navbarItem'>Equipe</li>
-                        </Link>
-                        <Link to='/app/ucl'>
-                            <li className='navbarItem'>UCL</li>
-                        </Link>
-                        <Link to='/add'>
-                            <li className='navbarItem'>Add</li>
-                        </Link>
+                        {navbarLink.map((item) => (
+                            <Link to={item.link}>
+                                <li className='navbarItem'>{item.title}</li>
+                            </Link>
+                        ))}
                     </ul>
                     <div className='relative'>
                         <img

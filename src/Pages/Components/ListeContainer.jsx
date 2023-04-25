@@ -1,7 +1,7 @@
 import React from "react"
 import { Grid, makeStyles, Typography, Paper, useMediaQuery, Divider } from "@material-ui/core"
 import { useQuery } from "react-query"
-import { fetchRecordPlayer } from "../../data/dataAction.js"
+import { fetchRecordPlayer } from "../../data/dataAction"
 
 const useStyles = makeStyles((theme) => ({
     zoneCard: {

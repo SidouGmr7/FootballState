@@ -1,5 +1,5 @@
 import React from "react"
-import { Slider } from "../Components/Layout/Slider"
+import { Slider } from "../Resource/Layout/Slider"
 import { sliderLink } from "../routes"
 import { useLocation } from "react-router-dom"
 

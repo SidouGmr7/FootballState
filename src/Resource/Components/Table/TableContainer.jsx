@@ -1,6 +1,6 @@
 import React from "react"
 import Table from "./DataTable"
-import { Button, Grid, Typography } from "@material-ui/core"
+import { Button, Grid } from "@material-ui/core"
 import { withPopoverMui } from "../Dialog/PopoverContainer"
 import { LoadingPage } from "../LoadingPage"
 

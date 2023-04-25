@@ -4,8 +4,7 @@ import { teamData } from "./data/RowData"
 import { AccessAlarm, ThreeDRotation } from "@mui/icons-material"
 import AddPlayer from "./Pages/AddPlayer"
 import Home from "./Pages/Home"
-import { ListeContainer } from './Pages/Components/ListeContainer';
-
+import { ListeContainer } from "./Pages/Components/ListeContainer"
 
 export const sliderLink = [
     {
@@ -31,6 +30,17 @@ export const sliderLink = [
         components: <ListeContainer />,
         link: "/app/record_general",
         icon: <AccessAlarm />,
+    },
+]
+
+export const navbarLink = [
+    {
+        title: "Home",
+        link: "/",
+    },
+    {
+        title: "Add",
+        link: "/add",
     },
 ]
 
